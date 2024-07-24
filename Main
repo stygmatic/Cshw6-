@@ -36,21 +36,24 @@ public class Homework6_99781 {
         System.out.println("\nGenerated numbers divisible by " + divisor + " from 10 to " + intInput + ":\n");
 
         // Generate and display numbers
+        int numbersPrinted = 0;
         for (int i = MIN_INPUT; i <= intInput; i++) {
             if (i % divisor == 0) {
                 System.out.printf("%6d", i);
                 count++;
                 sum += i;
+                numbersPrinted++;
 
                 // Print a new line after every 15 numbers
-                if (count % 15 == 0) {
+                if (numbersPrinted == 15) {
                     System.out.println();
+                    numbersPrinted = 0;
                 }
             }
         }
 
         // If the last line wasn't completed, print a new line
-        if (count % 15 != 0) {
+        if (numbersPrinted != 0) {
             System.out.println();
         }
 
