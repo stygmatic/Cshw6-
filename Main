@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
-public class Homework6_ {
-    // Constants for the minimum and maximum range values
-    private static final int MIN_DIVISOR = 2;
-    private static final int MAX_DIVISOR = 10;
-    private static final int MIN_INPUT = 10;
-    private static final int MAX_INPUT = 500;
-
+public class Homework6_99781 {
     public static void main(String[] args) {
+        final int MIN_DIVISOR = 2;
+        final int MAX_DIVISOR = 10;
+        final int MIN_INPUT = 10;
+        final int MAX_INPUT = 500;
+
         Scanner input = new Scanner(System.in);
 
         // Variables for input and calculations
