@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Homework6_ {
+    // Constants for the minimum and maximum range values
+    private static final int MIN_DIVISOR = 2;
+    private static final int MAX_DIVISOR = 10;
+    private static final int MIN_INPUT = 10;
+    private static final int MAX_INPUT = 500;
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Variables for input and calculations
+        int divisor;
+        int intInput;
+        int count = 0;
+        int sum = 0;
+
+        // Input validation for divisor
+        System.out.print("Enter a divisor from " + MIN_DIVISOR + " to " + MAX_DIVISOR + ": ");
+        divisor = input.nextInt();
+        while (divisor < MIN_DIVISOR || divisor > MAX_DIVISOR) {
+            System.out.println("Input " + divisor + " is not in the range of " + MIN_DIVISOR + " to " + MAX_DIVISOR + ".");
+            System.out.print("Enter a divisor from " + MIN_DIVISOR + " to " + MAX_DIVISOR + ": ");
+            divisor = input.nextInt();
+        }
+
+        // Input validation for the largest number
+        System.out.print("Enter the largest number to be generated. It must be in the range of " + MIN_INPUT + "-" + MAX_INPUT + ": ");
+        intInput = input.nextInt();
+        while (intInput < MIN_INPUT || intInput > MAX_INPUT) {
+            System.out.println("Input " + intInput + " is not in the range of " + MIN_INPUT + "-" + MAX_INPUT + ".");
+            System.out.print("Enter the largest number to be generated. It must be in the range of " + MIN_INPUT + "-" + MAX_INPUT + ": ");
+            intInput = input.nextInt();
+        }
+
+        System.out.println("\nGenerated numbers divisible by " + divisor + " from 10 to " + intInput + ":\n");
+
+        // Generate and display numbers
+        for (int i = MIN_INPUT; i <= intInput; i++) {
+            if (i % divisor == 0) {
+                System.out.printf("%6d", i);
+                count++;
+                sum += i;
+
+                // Print a new line after every 15 numbers
+                if (count % 15 == 0) {
+                    System.out.println();
+                }
+            }
+        }
+
+        // If the last line wasn't completed, print a new line
+        if (count % 15 != 0) {
+            System.out.println();
+        }
+
+        // Calculate and display the total sum, count, and average
+        System.out.printf("%n%s %9s", "Total sum: ", sum);
+        System.out.printf("%n%s %13s", "Count: ", count);
+        if (count > 0) {
+            double average = (double) sum / count;
+            System.out.printf("%n%s %11.2f%n", "Average:", average);
+        } else {
+            System.out.println("Average: N/A");
+        }
+    }
+}
